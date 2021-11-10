@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-light bg-light">
+      <%= link_to 'Yelp', restaurants_path, class:"navbar-brand"%>
+      <%= link_to 'Create Restaurant', new_restaurant_path %>
+    </nav>
     <%= yield %>
   </body>
 </html>
