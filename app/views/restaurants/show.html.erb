@@ -1,11 +1,19 @@
-<h2><%= @restaurant.name %></h2>
+<h2 class="mb-4 text-success"><%= @restaurant.name %></h2>
 <p>Address: <%= @restaurant.address %></p>
 <p>Phone number: <%= @restaurant.phone_number %></p>
 <p>Category: <%= @restaurant.category %></p>
-<h4>Reviews</h4>
+<div class="d-flex justify-content-between align-items-end">
+  <h4 class="mt-5">Reviews</h4>
+  <%= link_to "Add Review", new_restaurant_review_path(@restaurant), class: "text-dark"  %>
+</div>
 <% @restaurant.reviews.each do |review| %>
-  <div>
+  <div class="bg-white p-3 mt-2">
     <p><%= review.content %></p>
     <p><%= '⭐️' * review.rating %></p>
+  </div>
+<% end %>
+<% if @restaurant.reviews.empty? %>
+  <div class="bg-white p-3 mt-3">
+    <p>No reviews available 🔎</p>
   </div>
 <% end %>
